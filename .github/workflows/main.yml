@@ -109,7 +109,7 @@ jobs:
             OUTPUT_PATH="out/android${{ github.event.inputs.android_version }}-${{ github.event.inputs.kernel_version }}/dist"
           else
             echo "Using Bazel build system for Android ${{ github.event.inputs.android_version }}"
-            tools/bazel run //common:kernel_${{ github.event.inputs.target_arch }}_dist
+            tools/bazel run //common:kernel_${{ github.event.inputs.target_arch }}_dist --copt="-Wno-error=undefined-reinterpret-cast"
             OUTPUT_PATH="out/kernel_${{ github.event.inputs.target_arch }}"
           fi
           echo "OUTPUT_PATH=$OUTPUT_PATH" >> $GITHUB_ENV
