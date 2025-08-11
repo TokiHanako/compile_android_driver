@@ -89,7 +89,7 @@ unsigned long my_kallsyms_lookup_name_legacy(const char *fname_raw)
 	}
 	kfree(fname_lookup);
 	kfree(fname);
-	logk("[%s]:%llx\n", fname_raw, kaddr);
+	logk("[%s]:%lx\n", fname_raw, kaddr);
 	return kaddr;
 }
 
@@ -527,3 +527,4 @@ pid_t get_process_pid(char *name)
 #endif
 
 #endif // __UTILS_H
+
